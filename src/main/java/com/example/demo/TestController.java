@@ -1,6 +1,7 @@
 package com.example.demo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
 
@@ -10,7 +11,10 @@ public class TestController {
 
     @GetMapping
     public String get() {
-        return "dasdasd";
+
+        RestTemplate restTemplate = new RestTemplate();
+return restTemplate.getForObject("https://httpbin.org/ip", String.class);
+
     }
 
     @GetMapping("/listHeaders")
@@ -19,7 +23,7 @@ public class TestController {
         StringBuilder result = new StringBuilder();
         headers.forEach((key, value) -> {
             result.append(String.format("Header '%s' = %s", key, value));
-result.append("<br />");
+            result.append("<br />");
         });
 
         return result.toString();
