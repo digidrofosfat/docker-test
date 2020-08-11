@@ -1,4 +1,5 @@
 package com.example.demo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -9,13 +10,17 @@ import java.util.Map;
 @RequestMapping("greeting")
 public class TestController {
 
+    @Autowired
+    UfsProviderClientService service;
     @GetMapping
     public String get() {
-
-        RestTemplate restTemplate = new RestTemplate();
-return restTemplate.getForObject("https://httpbin.org/ip", String.class);
-
+        String result = service.getUserInfo("http://ufs-provider:8080/user/personal");
+        if(result == null){
+            throw new ForbiddenException();
+        }
+        return result;
     }
+
 
     @GetMapping("/listHeaders")
     public String listAllHeaders(
