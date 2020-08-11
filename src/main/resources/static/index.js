@@ -1,5 +1,5 @@
 
-fetch('http://45.89.226.2:41031/minfin/greeting')
+fetch('http://45.89.226.2:41031/minfin/greeting/')
     .then(function(response) {
         if (!response.ok) {
             throw Error(response.statusText);
