@@ -16,7 +16,7 @@ fetch('http://45.89.226.2:41031/anoitr/greeting')
         })
     .catch(
         x=> {
-            fetch('http://45.89.226.2:41031/ufs-user-entry/api/oidc/v1/auth/RT_SUBSIDY_RECIPIENT_WEB/newcuba')
+            fetch('http://45.89.226.2:41031/ufs-user-entry/api/oidc/v1/auth/RT_SUBSIDY_RECIPIENT_WEB/newcuba?appId=MINFIN')
                 .then(response=> response.text())
                 .then(url=>{
                     console.log(url);
