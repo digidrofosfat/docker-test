@@ -1,5 +1,5 @@
 
-fetch('http://45.89.226.2:41031/minfin/greeting/')
+fetch('http://45.89.226.2:41031/test/greeting/')
     .then(function(response) {
         if (!response.ok) {
             throw Error(response.statusText);
@@ -16,7 +16,7 @@ fetch('http://45.89.226.2:41031/minfin/greeting/')
         })
     .catch(
         x=> {
-            fetch('http://45.89.226.2:41031/ufs-user-entry/api/oidc/v1/auth/RT_SUBSIDY_RECIPIENT_WEB/esia?appId=MINFIN')
+            fetch('http://45.89.226.2:41031/ufs-user-entry/api/oidc/v1/auth/RT_SUBSIDY_RECIPIENT_WEB/esia?appId=TEST')
                 .then(response=> response.text())
                 .then(url=>{
                     console.log(url);
